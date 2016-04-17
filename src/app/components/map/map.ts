@@ -14,6 +14,7 @@ const shortid = require('shortid');
   template: require('./map.html')
 })
 export class Map {
+  lineRefs: Array<Object>;
 
   constructor(private gmapsProvider: GMapsProvider,
               private vehicleDataProvider: VehicleDataProvider) {
@@ -22,13 +23,38 @@ export class Map {
 
   ngOnInit() {
       this.gmapsProvider.initGMap();
-      this.vehicleDataProvider.getAvailableLines();      
-      this.vehicleDataProvider.initPollingData().subscribe((vehicleData) => {
+      
+      this.vehicleDataProvider.getAvailableLines()
+        .subscribe(data => this.lineRefs = this.processLineRefs(data), err => console.log(err));
 
-          _.forEach(vehicleData, (vehicle) => {
-            let journeyObj = vehicle.monitoredVehicleJourney;
+      this.vehicleDataProvider.initPollingData()
+        .subscribe(data => this.addMarkers(data), err => { console.log(err)});
+  }
 
-            this.gmapsProvider.addMarker({
+  processLineRefs(data) {
+    return _.chain(data)
+        .map((val) => {
+            return val.monitoredVehicleJourney;
+        })
+        .map((val) => {
+            return +val.lineRef;
+        })
+        .uniq()
+        .sortBy()
+        .map((val) => {
+            return {
+                lineRef: val,
+                isDisabled: false
+            };
+        })
+        .value();
+  }
+
+  addMarkers(data) {
+      _.forEach(data, (vehicle) => {
+          let journeyObj = vehicle.monitoredVehicleJourney;
+
+          this.gmapsProvider.addMarker({
               id: shortid.generate(),
               lat: journeyObj.vehicleLocation.latitude,
               lng: journeyObj.vehicleLocation.longitude,
@@ -36,10 +62,8 @@ export class Map {
               lineRef: journeyObj.lineRef,
               vehicleRef: journeyObj.vehicleRef,
               delay: journeyObj.delay
-            });
           });
-
-      }, error => { console.log(error)});
+      });
   }
 
   markerSelected(lineRef: number) {

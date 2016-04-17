@@ -1,48 +1,25 @@
-import {Component, EventEmitter, Output} from 'angular2/core';
+import {Component, EventEmitter, Input, Output} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
-import {VehicleDataProvider} from './../../providers/vehicledata/vehicledata.provider';
 const _ = require('lodash');
 
 @Component({
   selector: 'app-menu',
-  providers: [VehicleDataProvider],
+  providers: [],
   directives: [CORE_DIRECTIVES],
   pipes: [],
   styles: [ require('./menu.scss') ],
   template: require('./menu.html')
 })
 export class AppMenu {
+  @Input() lineRefs: Array<Object>;
   @Output() private onMarkerSelected: EventEmitter<number>;
-  private lineRefs: Array<number>;
 
-
-  constructor(private vehicleDataProvider: VehicleDataProvider) {
+  constructor() {
     this.onMarkerSelected = new EventEmitter();
   }
 
-  /**
-   * Called on after angular has created bindings
-   * Creates the line refs for the menu bar
-   */
   ngOnInit() {
-    this.vehicleDataProvider.getAvailableLines().subscribe((data) => {
-      this.lineRefs = _.chain(data)
-        .map((val) => {
-          return val.monitoredVehicleJourney;
-        })
-        .map((val) => {
-          return +val.lineRef;
-        })
-        .uniq()
-        .sortBy()
-        .map((val) => {
-          return {
-            lineRef: val,
-            isDisabled: false
-          };
-        })
-        .value();
-    });
+
   }
   
   /**
