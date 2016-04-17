@@ -1,0 +1,28 @@
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #FFF;
+
+    .linebuttons {
+        display: flex;
+        flex-direction: row;
+
+        @media screen and (max-width: 600px) {
+            flex-wrap: wrap;
+        }
+    }
+
+    .linerefbtn {
+        flex: 0 1 100%;
+        border-radius: 0px;
+        box-shadow: none;
+        padding: 0px;
+
+        @media screen and (max-width: 600px) {
+            flex: 0 1 10%;
+        }
+    }
+}

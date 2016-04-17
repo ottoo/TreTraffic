@@ -1,0 +1,5 @@
+<div class="menu">
+    <div class="linebuttons">
+        <a *ngFor="#line of lineRefs" class="waves-effect waves-light btn linerefbtn" [class.disabled]="line.isDisabled" (click)="toggleMarkerVisibility(line.lineRef)"> {{line.lineRef}}</a>
+    </div>
+</div>

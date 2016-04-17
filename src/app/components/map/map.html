@@ -1,0 +1,7 @@
+<app-menu (onMarkerSelected)="markerSelected($event)"></app-menu>
+<div class="showdelay" [hidden]="!gmapsProvider.hideDelay">
+    The bus is late {{gmapsProvider.selectedMarkerDelay}} seconds.
+</div>
+<div id="maparea">
+
+</div>
