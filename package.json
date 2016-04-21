@@ -25,6 +25,7 @@
     "angular2": "2.0.0-beta.14",
     "es6-shim": "^0.35.0",
     "gmaps": "^0.4.24",
+    "materialize-css": "^0.97.6",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
     "shortid": "^2.2.6",
