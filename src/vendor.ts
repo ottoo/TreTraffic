@@ -8,6 +8,8 @@ import 'angular2/http';
 // RxJS
 import 'rxjs';
 
+(<any>global).$ = (<any>window).jQuery = require('jquery');
+
 import './../node_modules/materialize-css/dist/js/materialize.min.js';
 import './../node_modules/materialize-css/dist/css/materialize.min.css';
 
