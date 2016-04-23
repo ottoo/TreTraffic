@@ -1,5 +1,10 @@
-<div class="menu">
-    <div class="linebuttons">
-        <a *ngFor="#line of lineRefs" class="waves-effect waves-light btn linerefbtn" [class.disabled]="line.isDisabled" (click)="toggleMarkerVisibility(line.lineRef)"> {{line.lineRef}}</a>
-    </div>
+<div id="slide-out" class="side-nav lineref-nav">
+  <a *ngFor="#line of lineRefs" class="waves-effect waves-light btn linerefbtn" [class.disabled]="line.isDisabled" (click)="toggleMarkerVisibility(line.lineRef)"> {{line.lineRef}}</a>
 </div>
+<div class="menu">
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons menu-icon">menu</i></a>
+  <div class="title">
+    <span>TreTraffic</span>
+  </div>
+</div>
+          

@@ -1,10 +1,23 @@
 .menu {
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     background-color: #FFF;
+    height: 50px;
+
+    a {
+        color: #000;
+    }
+
+    .menu-icon {
+        font-size: 28px;
+        margin-top: 8px;
+        margin-left: 10px;
+    }
 
     .linebuttons {
         display: flex;
@@ -13,16 +26,27 @@
         @media screen and (max-width: 600px) {
             flex-wrap: wrap;
         }
-    }
+    }   
 
-    .linerefbtn {
-        flex: 0 1 100%;
-        border-radius: 0px;
-        box-shadow: none;
-        padding: 0px;
+    .title {
+        font-size: 16px;
+        margin-left: 100px;
+    } 
+}
 
-        @media screen and (max-width: 600px) {
-            flex: 0 1 10%;
-        }
+.lineref-nav {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.linerefbtn {
+    width: calc(50% - 10px);
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0px;
+    margin: 5px !important;
+
+    @media screen and (max-width: 600px) {
+        flex: 0 1 10%;
     }
 }

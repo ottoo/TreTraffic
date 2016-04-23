@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function main() {
     ...HTTP_PROVIDERS,
     ...ROUTER_PROVIDERS,
     ...ENV_PROVIDERS,
-    provide(LocationStrategy, {useClass: HashLocationStrategy}) // use #/ routes, remove this for HTML5 mode
+    provide(LocationStrategy, {useClass: HashLocationStrategy})
   ])
   .catch(err => console.error(err));
 });

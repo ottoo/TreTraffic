@@ -19,7 +19,7 @@ export class AppMenu {
   }
 
   ngOnInit() {
-
+    $(".button-collapse").sideNav();
   }
   
   /**
