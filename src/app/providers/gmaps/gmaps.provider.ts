@@ -166,7 +166,6 @@ export class GMapsProvider {
                     delay: vehicleMarkerConfig.delay
                 },
                 click: (e) => {
-                    console.log('This bus is late', e.delay);
                     // Delay is in the format P0Y0M0DT0H3M43.000S
                     let seconds = e.delay.match(/[M]\d*/g)[1].replace('M', '');
                     Materialize.toast(`The bus is late ${seconds} seconds.`, 2000);
@@ -198,7 +197,7 @@ export class GMapsProvider {
     removeAllMarkers() {
         this.gmap.removeMarkers();
     }
-
+    
     /**
      * Toggles the visibility of a marker
      * @param {number} lineRef

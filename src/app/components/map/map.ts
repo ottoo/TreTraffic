@@ -1,13 +1,13 @@
 import {Component} from 'angular2/core';
+import {AppMenu} from './../menu/menu';
 import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
 import {VehicleDataProvider} from './../../providers/vehicledata/vehicledata.provider';
-import {AppMenu} from './../menu/menu';
 const _ = require('lodash');
 const shortid = require('shortid');
 
 @Component({
   selector: 'map',
-  providers: [GMapsProvider, VehicleDataProvider],
+  providers: [],
   directives: [AppMenu],
   pipes: [],
   styles: [ require('./map.scss') ],
@@ -65,9 +65,4 @@ export class Map {
           });
       });
   }
-
-  markerSelected(lineRef: number) {
-    this.gmapsProvider.toggleMarkerVisibility(lineRef);
-  }
-
 }

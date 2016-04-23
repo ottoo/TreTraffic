@@ -9,7 +9,6 @@ export class VehicleDataProvider {
 
     constructor(private http: Http) {
         this.http = http;
-        console.log('Init Vehicle data provider');
     }
 
     callBackend(searchPattern?: string) {

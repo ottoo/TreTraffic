@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
+import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
 const _ = require('lodash');
 
 @Component({
@@ -12,14 +13,27 @@ const _ = require('lodash');
 })
 export class AppMenu {
   @Input() lineRefs: Array<Object>;
-  @Output() private onMarkerSelected: EventEmitter<number>;
 
-  constructor() {
-    this.onMarkerSelected = new EventEmitter();
+  constructor(private gmapsProvider: GMapsProvider) {
+
   }
 
   ngOnInit() {
     $(".button-collapse").sideNav();
+  }
+
+  /**
+   * Toggles all the lines visibilities at once
+   * @param {Array<Object>} lineRefs
+   * @param {Boolean}       isDisabled
+   */
+  toggleAllLinesVisibility(lineRefs: Array<Object>, isDisabled: Boolean) {
+    _.forEach(this.lineRefs, (line) => {
+      if (line.isDisabled == isDisabled) {
+        line.isDisabled = !line.isDisabled;
+        this.gmapsProvider.toggleMarkerVisibility(line.lineRef);
+      }
+    });
   }
   
   /**
@@ -33,7 +47,7 @@ export class AppMenu {
 
     foundLineRef.isDisabled = !foundLineRef.isDisabled;
 
-    this.onMarkerSelected.emit(lineRef);
+    this.gmapsProvider.toggleMarkerVisibility(lineRef);
   }
 
 }

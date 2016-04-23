@@ -14,7 +14,8 @@
     }
 
     .menu-icon {
-        font-size: 28px;
+        color: #00897b;
+        font-size: 32px;
         margin-top: 8px;
         margin-left: 10px;
     }
@@ -29,7 +30,7 @@
     }   
 
     .title {
-        font-size: 16px;
+        font-size: 20px;
         margin-left: 100px;
     } 
 }
@@ -39,14 +40,17 @@
     flex-wrap: wrap;
 }
 
+.selectbtn {
+    flex: 0 1 100%;
+    margin: 5px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+}
+
 .linerefbtn {
     width: calc(50% - 10px);
     border-radius: 0px;
     box-shadow: none;
     padding: 0px;
     margin: 5px !important;
-
-    @media screen and (max-width: 600px) {
-        flex: 0 1 10%;
-    }
 }

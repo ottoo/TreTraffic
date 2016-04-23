@@ -10,14 +10,12 @@ import {MockBackend} from 'angular2/http/testing';
 import {provide} from "angular2/core";
 
 // Load the implementations that should be tested
-import {Api} from './services/api/api';
 import {App} from './app';
 
 describe('App', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEachProviders(() => [
     App,
-    Api,
     BaseRequestOptions,
     MockBackend,
     // Provide a mocked (fake) backend for Http
