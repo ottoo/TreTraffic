@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
 const _ = require('lodash');
 

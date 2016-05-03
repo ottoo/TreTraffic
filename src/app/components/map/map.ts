@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {AppMenu} from './../menu/menu';
 import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
 import {VehicleDataProvider} from './../../providers/vehicledata/vehicledata.provider';

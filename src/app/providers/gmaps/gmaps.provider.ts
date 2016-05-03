@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 const shortid = require('shortid');
 const _ = require('lodash');
 const GMaps = require('gmaps');
