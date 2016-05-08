@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {AppMenu} from './../menu/menu';
 import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
 import {VehicleDataProvider} from './../../providers/vehicledata/vehicledata.provider';
 const _ = require('lodash');
@@ -8,7 +7,7 @@ const shortid = require('shortid');
 @Component({
   selector: 'map',
   providers: [],
-  directives: [AppMenu],
+  directives: [],
   pipes: [],
   styles: [ require('./map.scss') ],
   template: require('./map.html')
@@ -28,7 +27,7 @@ export class Map {
         .subscribe(data => this.lineRefs = this.processLineRefs(data), err => console.log(err));
 
       this.vehicleDataProvider.initPollingData()
-        .subscribe(data => this.addMarkers(data), err => { console.log(err)});
+        .subscribe((data) => this.addMarkers(data), err => { console.log(err)});
   }
 
   processLineRefs(data) {

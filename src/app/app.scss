@@ -1,7 +1,7 @@
 // styles applied on :host are applied on the current component, "app" in this case
-// :host {
-//   display: block;
-// }
+:host {
+  height: calc(100% - 40px);
+}
 
 .contentarea {
     height: calc(100% - 90px);

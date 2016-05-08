@@ -11,8 +11,6 @@ import {HTTP_PROVIDERS} from '@angular/http';
 // depending on the env mode, enable prod mode or add debugging modules
 if (process.env.ENV === 'build') {
   enableProdMode();
-} else {
-
 }
 
 /*
