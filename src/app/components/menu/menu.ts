@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
 const _ = require('lodash');
@@ -11,7 +11,7 @@ const _ = require('lodash');
   styles: [ require('./menu.scss') ],
   template: require('./menu.html')
 })
-export class AppMenu {
+export class AppMenu implements OnInit {
   @Input() lineRefs: Array<Object>;
 
   constructor(private gmapsProvider: GMapsProvider) {

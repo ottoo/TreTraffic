@@ -1,6 +1,6 @@
-import {enableProdMode, provide} from '@angular/core';
+import {enableProdMode} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
-// All directives provided by the platform 
+// All directives provided by the platform
 import {PLATFORM_DIRECTIVES} from '@angular/core';
 // Router directives
 import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
@@ -32,5 +32,5 @@ document.addEventListener('DOMContentLoaded', function main() {
     { provide: PLATFORM_DIRECTIVES, multi: true, useValue: [...ROUTER_DIRECTIVES] },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ])
-  .catch(err => console.error(err));
+    .catch(err => console.error(err));
 });

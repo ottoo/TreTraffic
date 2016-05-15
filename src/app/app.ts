@@ -26,7 +26,7 @@ const _ = require('lodash');
   template: require('./app.html')
 })
 @RouteConfig([
-    { path: '/', component: Map, name: 'Index', useAsDefault: true }
+  { path: '/', component: Map, name: 'Index', useAsDefault: true }
 ])
 export class App {
   name = 'TreTraffic';
@@ -34,25 +34,22 @@ export class App {
 
   constructor(private vehicleDataProvider: VehicleDataProvider) {
     this.vehicleDataProvider.getAvailableLines()
-        .subscribe(data => this.lineRefs = this.processLineRefs(data), err => console.log(err));
+      .subscribe(data => this.lineRefs = this.processLineRefs(data), err => console.log(err));
   }
 
   processLineRefs(data) {
     return _.chain(data)
-        .map((val) => {
-            return val.monitoredVehicleJourney;
-        })
-        .map((val) => {
-            return +val.lineRef;
-        })
-        .uniq()
-        .sortBy()
-        .map((val) => {
-            return {
-                lineRef: val,
-                isDisabled: false
-            };
-        })
-        .value();
+      .map((val) => {
+        return +val.lineRef;
+      })
+      .uniq()
+      .sortBy()
+      .map((val) => {
+        return {
+          lineRef: val,
+          isDisabled: false
+        };
+      })
+      .value();
   }
 }
