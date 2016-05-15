@@ -22,5 +22,24 @@
     "forkChecker": true
   },
   "compileOnSave": false,
-  "buildOnSave": false
+  "buildOnSave": false,
+  "files": [
+    "./src/app/app.spec.ts",
+    "./src/app/app.ts",
+    "./src/app/components/footer/footer.ts",
+    "./src/app/components/map/map.ts",
+    "./src/app/components/menu/menu.ts",
+    "./src/app/providers/gmaps/gmaps.provider.ts",
+    "./src/app/providers/localstorage/localstorage.provider.ts",
+    "./src/app/providers/vehicledata/vehicledata.provider.ts",
+    "./src/bootstrap.ts",
+    "./src/custom-typings.d.ts",
+    "./src/polyfills.ts",
+    "./src/vendor.ts",
+    "src/custom-typings.d.ts",
+    "typings/browser.d.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
 }

@@ -23,20 +23,6 @@ export class AppMenu {
   }
 
   /**
-   * Toggles all the lines visibilities at once
-   * @param {Array<Object>} lineRefs
-   * @param {Boolean}       isDisabled
-   */
-  toggleAllLinesVisibility(lineRefs: Array<Object>, isDisabled: Boolean) {
-    _.forEach(this.lineRefs, (line) => {
-      if (line.isDisabled == isDisabled) {
-        line.isDisabled = !line.isDisabled;
-        this.gmapsProvider.toggleMarkerVisibility(line.lineRef);
-      }
-    });
-  }
-  
-  /**
    * Toggles the marker visibility
    * @param {number} lineRef bus line number
    */
@@ -44,7 +30,6 @@ export class AppMenu {
     let foundLineRef = _.find(this.lineRefs, (val) => {
       return val.lineRef === lineRef;
     });
-
     foundLineRef.isDisabled = !foundLineRef.isDisabled;
 
     this.gmapsProvider.toggleMarkerVisibility(lineRef);

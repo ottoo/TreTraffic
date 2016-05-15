@@ -12,6 +12,7 @@ export class GMapsProvider {
     defaultLng: number = 23.7610254;
     gmap: any = null;
     markers: Array<any> = [];
+    lineRefs: Array<Object> = [];
     hideDelay: Boolean = false;
     selectedMarkerDelay: any;
 
@@ -137,7 +138,7 @@ export class GMapsProvider {
      * @param {number} lineRef
      */
     getIconPath(lineRef: number) {
-        return lineRef ? '/traffic/res/number_' + lineRef + '.png' : '';
+        return lineRef ? '/res/number_' + lineRef + '.png' : '';
     }
 
     /**

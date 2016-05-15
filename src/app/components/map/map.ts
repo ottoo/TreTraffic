@@ -22,32 +22,10 @@ export class Map {
 
   ngOnInit() {
       this.gmapsProvider.initGMap();
-      
-      this.vehicleDataProvider.getAvailableLines()
-        .subscribe(data => this.lineRefs = this.processLineRefs(data), err => console.log(err));
 
       this.vehicleDataProvider.initPollingData()
         .subscribe((data) => this.addMarkers(data), err => { console.log(err)});
-  }
-
-  processLineRefs(data) {
-    return _.chain(data)
-        .map((val) => {
-            return val.monitoredVehicleJourney;
-        })
-        .map((val) => {
-            return +val.lineRef;
-        })
-        .uniq()
-        .sortBy()
-        .map((val) => {
-            return {
-                lineRef: val,
-                isDisabled: false
-            };
-        })
-        .value();
-  }
+  }  
 
   addMarkers(data) {
       _.forEach(data, (vehicle) => {

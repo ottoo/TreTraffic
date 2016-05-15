@@ -1,6 +1,4 @@
 <div id="slide-out" class="side-nav lineref-nav">
-  <a class="waves-effect waves-light btn selectbtn" (click)="toggleAllLinesVisibility(lineRefs, false)">Unselect all lines</a>
-  <a class="waves-effect waves-light btn selectbtn" (click)="toggleAllLinesVisibility(lineRefs, true)">Select all lines</a>
   <a *ngFor="let line of lineRefs" class="waves-effect waves-light btn linerefbtn" [class.disabled]="line.isDisabled" (click)="toggleMarkerVisibility(line.lineRef)"> {{line.lineRef}}</a>
 </div>
 <div class="menu">
@@ -9,4 +7,3 @@
     <span class="teal-text text-darken-1">TreTraffic</span>
   </div>
 </div>
-          
