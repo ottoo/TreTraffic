@@ -22,8 +22,11 @@ interface ErrorStackTraceLimit {
   stackTraceLimit: number;
 }
 
-
 // Extend typings
 interface NodeRequire extends WebpackRequire {}
 interface ErrorConstructor extends ErrorStackTraceLimit {}
 interface NodeModule extends WebpackModule {}
+
+interface JQuery {
+    sideNav():void;
+}

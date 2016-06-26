@@ -1,16 +1,12 @@
 import {Component} from '@angular/core';
-import {RouteConfig} from '@angular/router-deprecated';
-
 import {AppMenu} from './components/menu/menu';
 import {Map} from './components/map/map';
 import {GMapsProvider} from './providers/gmaps/gmaps.provider';
 import {LocalStorageProvider} from './providers/localstorage/localstorage.provider';
 import {VehicleDataProvider} from './providers/vehicledata/vehicledata.provider';
-
 import {AppFooter} from './components/footer/footer';
 
 import '../style/app.scss';
-
 const _ = require('lodash');
 
 /*
@@ -23,11 +19,8 @@ const _ = require('lodash');
   directives: [AppMenu, AppFooter],
   pipes: [],
   styles: [require('./app.scss')],
-  template: require('./app.html')
+  templateUrl: './app.html'
 })
-@RouteConfig([
-  { path: '/', component: Map, name: 'Index', useAsDefault: true }
-])
 export class App {
   name = 'TreTraffic';
   lineRefs: Array<Object> = [];

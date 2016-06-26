@@ -1,7 +1,8 @@
 var path = require('path');
+
 var webpackConfig = require('./webpack.config');
 
-module.exports = function (config) {
+module.exports = function(config) {
   var _config = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -12,11 +13,10 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: [
-      {pattern: 'node_modules/es6-shim/es6-shim.js', included: true, watched: false},
-      {pattern: 'node_modules/angular2/bundles/angular2-polyfills.js', included: true, watched: false},
-      {pattern: './karma-shim.js', watched: false}
-    ],
+    files: [{
+      pattern: './karma-shim.js',
+      watched: false
+    }],
 
     // list of files to exclude
     exclude: [],
@@ -37,10 +37,23 @@ module.exports = function (config) {
 
     coverageReporter: {
       dir: 'coverage/',
-      reporters: [
-        {type: 'text-summary'},
-        {type: 'html'}
-      ]
+      reporters: [{
+        type: 'json',
+        dir: 'coverage',
+        subdir: 'json',
+        file: 'coverage-final.json'
+      }]
+    },
+
+    remapIstanbulReporter: {
+      src: 'coverage/json/coverage-final.json',
+      reports: {
+        lcovonly: 'coverage/json/lcov.info',
+        html: 'coverage/html',
+        'text': null
+      },
+      timeoutNotCreated: 1000, // default value
+      timeoutNoMoreFiles: 1000 // default value
     },
 
     webpackServer: {
@@ -48,9 +61,9 @@ module.exports = function (config) {
     },
 
     // test results reporter to use
-    // possible values: 'dots', 'progress'
+    // possible values: 'dots', 'progress', 'mocha'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ["mocha", "coverage", "karma-remap-istanbul"],
 
     // web server port
     port: 9876,

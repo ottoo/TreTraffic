@@ -1,45 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "moduleResolution": "node"
+    "noEmitHelpers": true
   },
-  "filesGlob": [
-    "./src/**/*.ts",
-    "!./node_modules/**/*.ts",
-    "src/custom-typings.d.ts",
-    "typings/browser.d.ts"
-  ],
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
+    "node_modules"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true
+    "forkChecker": true,
+    "useWebpackText": true
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "files": [
-    "./src/app/app.spec.ts",
-    "./src/app/app.ts",
-    "./src/app/components/footer/footer.ts",
-    "./src/app/components/map/map.ts",
-    "./src/app/components/menu/menu.ts",
-    "./src/app/providers/gmaps/gmaps.provider.ts",
-    "./src/app/providers/localstorage/localstorage.provider.ts",
-    "./src/app/providers/vehicledata/vehicledata.provider.ts",
-    "./src/bootstrap.ts",
-    "./src/custom-typings.d.ts",
-    "./src/polyfills.ts",
-    "./src/vendor.ts",
-    "src/custom-typings.d.ts",
-    "typings/browser.d.ts"
-  ],
   "atom": {
-    "rewriteTsconfig": true
+    "rewriteTsconfig": false
   }
 }
