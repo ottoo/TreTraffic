@@ -1,12 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CORE_DIRECTIVES} from '@angular/common';
-import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
+import { Component, Input, OnInit } from '@angular/core';
+import { GMapsProvider } from './../../providers/gmaps/gmaps.provider';
 const _ = require('lodash');
 
 @Component({
   selector: 'app-menu',
   providers: [],
-  directives: [CORE_DIRECTIVES],
+  directives: [],
   pipes: [],
   styles: [ require('./menu.scss') ],
   template: require('./menu.html')
@@ -19,7 +18,7 @@ export class AppMenu implements OnInit {
   }
 
   ngOnInit() {
-    $(".button-collapse").sideNav();
+    $('.button-collapse').sideNav();
   }
 
   /**

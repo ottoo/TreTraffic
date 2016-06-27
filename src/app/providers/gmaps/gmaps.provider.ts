@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-const shortid = require('shortid');
+import { Injectable } from '@angular/core';
+const shortId = require('shortid');
 const _ = require('lodash');
-const GMaps = require('gmaps');
+const gmaps = require('gmaps');
 
 // Declare variable google so there are no typescript knows about it
-declare var google;
+declare let google;
 
 @Injectable()
 export class GMapsProvider {
@@ -26,7 +26,7 @@ export class GMapsProvider {
    * @param {number}
    */
   initGMap(lat: number = this.defaultLat, lng: number = this.defaultLng) {
-    this.gmap = new GMaps({
+    this.gmap = new gmaps({
       div: '#maparea',
       lat: lat,
       lng: lng,
@@ -35,7 +35,7 @@ export class GMapsProvider {
       zoomControl: true
     });
 
-    var styles = [
+    let styles = [
       {
         'featureType': 'road.highway',
         'elementType': 'geometry',
@@ -105,11 +105,11 @@ export class GMapsProvider {
 
     this.gmap.setStyle('map_style');
 
-    GMaps.geolocate({
+    gmaps.geolocate({
       success: (position) => {
         this.gmap.setCenter(position.coords.latitude, position.coords.longitude);
         this.addMarker({
-          id: shortid.generate(),
+          id: shortId.generate(),
           lat: position.coords.latitude,
           lng: position.coords.longitude,
           title: 'Title',
@@ -150,7 +150,8 @@ export class GMapsProvider {
     let foundVehicle = this.getVehicleMarker(vehicleMarkerConfig.vehicleRef);
 
     if (foundVehicle) {
-      foundVehicle.setPosition(new google.maps.LatLng(vehicleMarkerConfig.lat, vehicleMarkerConfig.lng));
+      foundVehicle.setPosition(new google.maps.LatLng(vehicleMarkerConfig.lat,
+          vehicleMarkerConfig.lng));
       foundVehicle.set('delay', vehicleMarkerConfig.delay);
     } else {
       if (_.isUndefined(vehicleMarkerConfig.lineRef)) {
@@ -158,7 +159,7 @@ export class GMapsProvider {
       }
 
       let markerObj = this.gmap.addMarker({
-        id: shortid.generate(),
+        id: shortId.generate(),
         icon: this.getIconPath(vehicleMarkerConfig.lineRef),
         lat: vehicleMarkerConfig.lat,
         lng: vehicleMarkerConfig.lng,

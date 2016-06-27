@@ -1,9 +1,11 @@
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
+
+import { DIRECTIVES } from './platform/directives';
+
 import { ELEMENT_PROBE_PROVIDERS } from '@angular/platform-browser';
-import { PLATFORM_DIRECTIVES } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { disableDeprecatedForms, provideForms, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { disableDeprecatedForms, provideForms, REACTIVE_FORM_DIRECTIVES }
+from '@angular/forms';
 import { APP_ROUTER_PROVIDERS } from './app/app.routes.ts';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HTTP_PROVIDERS } from '@angular/http';
@@ -21,7 +23,7 @@ if (process.env.ENV === 'build') {
  * App Component
  * our top level component that holds all of our components
  */
-import {App} from './app/app';
+import { App } from './app/app';
 
 /*
  * Bootstrap our Angular app with a top level component `App` and inject
@@ -32,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function main() {
     // These are dependencies of our App
     disableDeprecatedForms(),
     provideForms(),
+    ...DIRECTIVES,
     ...APP_ROUTER_PROVIDERS,
     ...HTTP_PROVIDERS,
     ...ENV_PROVIDERS,
-    { provide: PLATFORM_DIRECTIVES, multi: true, useValue: [...ROUTER_DIRECTIVES, ...REACTIVE_FORM_DIRECTIVES] },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ])
     .catch(err => console.error(err));

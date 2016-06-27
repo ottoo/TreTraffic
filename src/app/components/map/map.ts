@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {GMapsProvider} from './../../providers/gmaps/gmaps.provider';
-import {VehicleDataProvider} from './../../providers/vehicledata/vehicledata.provider';
+import { Component, OnInit } from '@angular/core';
+import { GMapsProvider } from './../../providers/gmaps/gmaps.provider';
+import { VehicleDataProvider } from './../../providers/vehicledata/vehicledata.provider';
 const _ = require('lodash');
-const shortid = require('shortid');
+const shortId = require('shortid');
 
 @Component({
   selector: 'map',
@@ -36,7 +36,7 @@ export class Map implements OnInit {
       let journeyObj = vehicle;
 
       this.gmapsProvider.addMarker({
-        id: shortid.generate(),
+        id: shortId.generate(),
         lat: journeyObj.vehicleLocation.latitude,
         lng: journeyObj.vehicleLocation.longitude,
         title: journeyObj.lineRef,

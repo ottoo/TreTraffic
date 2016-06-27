@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {AppMenu} from './components/menu/menu';
-import {Map} from './components/map/map';
-import {GMapsProvider} from './providers/gmaps/gmaps.provider';
-import {LocalStorageProvider} from './providers/localstorage/localstorage.provider';
-import {VehicleDataProvider} from './providers/vehicledata/vehicledata.provider';
-import {AppFooter} from './components/footer/footer';
+import { Component } from '@angular/core';
+import { AppMenu } from './components/menu/menu';
+import { Map } from './components/map/map';
+import { GMapsProvider } from './providers/gmaps/gmaps.provider';
+import { LocalStorageProvider } from './providers/localstorage/localstorage.provider';
+import { VehicleDataProvider } from './providers/vehicledata/vehicledata.provider';
+import { AppFooter } from './components/footer/footer';
 
 import '../style/app.scss';
 const _ = require('lodash');
