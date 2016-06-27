@@ -15,4 +15,4 @@ import 'rxjs';
 require('./../node_modules/materialize-css/dist/js/materialize.js');
 require('./../node_modules/materialize-css/dist/css/materialize.css');
 
-require.context('./public/img/mapicons', false, /\.png$/);
+require.context('./public/img', true, /\.png$/);

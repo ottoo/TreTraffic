@@ -17,6 +17,13 @@
         color: #000;
     }
 
+    .githublogo {
+        position: absolute;
+        top: 8px;
+        right: 5px;
+        height: 32px;
+    }
+
     .menu-icon {
         color: #00897b;
         font-size: 32px;
@@ -31,12 +38,12 @@
         @media screen and (max-width: 600px) {
             flex-wrap: wrap;
         }
-    }   
+    }
 
     .title {
         font-size: 20px;
         margin-left: 100px;
-    } 
+    }
 }
 
 .lineref-nav {

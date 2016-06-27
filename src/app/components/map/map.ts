@@ -33,16 +33,14 @@ export class Map implements OnInit {
     }
 
     _.forEach(data, (vehicle) => {
-      let journeyObj = vehicle;
-
       this.gmapsProvider.addMarker({
         id: shortId.generate(),
-        lat: journeyObj.vehicleLocation.latitude,
-        lng: journeyObj.vehicleLocation.longitude,
-        title: journeyObj.lineRef,
-        lineRef: journeyObj.lineRef,
-        vehicleRef: journeyObj.vehicleRef,
-        delay: journeyObj.delay
+        lat: vehicle.vehicleLocation.latitude,
+        lng: vehicle.vehicleLocation.longitude,
+        title: vehicle.lineRef,
+        lineRef: vehicle.lineRef,
+        vehicleRef: vehicle.vehicleRef,
+        delay: vehicle.delay
       });
     });
   }
