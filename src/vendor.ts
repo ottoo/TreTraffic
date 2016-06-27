@@ -12,7 +12,7 @@ import 'rxjs';
 
 (<any>global).$ = (<any>window).jQuery = require('jquery');
 
-import './../node_modules/materialize-css/dist/js/materialize.min.js';
-import './../node_modules/materialize-css/dist/css/materialize.min.css';
+require('./../node_modules/materialize-css/dist/js/materialize.js');
+require('./../node_modules/materialize-css/dist/css/materialize.css');
 
 require.context('./public/img/mapicons', false, /\.png$/);
