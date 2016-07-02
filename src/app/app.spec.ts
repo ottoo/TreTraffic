@@ -1,22 +1,24 @@
 import {
-  it,
-  inject,
-  beforeEachProviders
-} from 'angular2/testing';
+    it,
+    inject,
+    beforeEachProviders
+} from '@angular/core/testing';
 
-// to use Translate Service, we need Http, and to test Http we need to mock the backend
-import {BaseRequestOptions, Http} from 'angular2/http';
-import {MockBackend} from 'angular2/http/testing';
-import {provide} from "angular2/core";
+import { BaseRequestOptions, Http } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
+import { provide } from '@angular/core';
 
-// Load the implementations that should be tested
-import {App} from './app';
+import { GMapsProvider } from './providers/gmaps/gmaps.provider';
+import { VehicleDataProvider } from './providers/vehicledata/vehicledata.provider';
+import { App } from './app';
 
 describe('App', () => {
   // provide our implementations or mocks to the dependency injector
   beforeEachProviders(() => [
     App,
     BaseRequestOptions,
+    GMapsProvider,
+    VehicleDataProvider,
     MockBackend,
     // Provide a mocked (fake) backend for Http
     provide(Http, {
@@ -27,8 +29,8 @@ describe('App', () => {
     })
   ]);
 
-  it('should have an url', inject([App], (app: App) => {
-    expect(app.url).toEqual('https://github.com/preboot/angular2-webpack');
+  it('should have a name', inject([App], (app: App) => {
+    expect(app.name).toEqual('TreTraffic');
   }));
 
 });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GMapsProvider } from './../../providers/gmaps/gmaps.provider';
 import { VehicleDataProvider } from './../../providers/vehicledata/vehicledata.provider';
-const _ = require('lodash');
+import * as _ from 'lodash';
 const shortId = require('shortid');
 
 @Component({
@@ -13,7 +13,6 @@ const shortId = require('shortid');
   template: require('./map.html')
 })
 export class Map implements OnInit {
-  lineRefs: Array<Object>;
 
   constructor(private gmapsProvider: GMapsProvider,
     private vehicleDataProvider: VehicleDataProvider) {

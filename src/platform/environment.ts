@@ -1,6 +1,5 @@
-import { ELEMENT_PROBE_PROVIDERS } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
-import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
+import { disableDebugTools } from '@angular/platform-browser';
 
 const PROVIDERS = [];
 
@@ -9,7 +8,7 @@ if (process.env.ENV === 'build') {
     disableDebugTools();
     enableProdMode();
 } else {
-  PROVIDERS.push(ELEMENT_PROBE_PROVIDERS);
+
 }
 
 export const ENV_PROVIDERS = [
