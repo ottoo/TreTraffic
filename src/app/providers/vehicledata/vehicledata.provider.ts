@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class VehicleDataProvider {
+    /* A subject that is exposed as observable to the outside world */
     private _lineRefs$: Subject<Array<Object>>;
     /* Private data held in memory here */
     private vehicleData = {
@@ -16,6 +17,12 @@ export class VehicleDataProvider {
         this._lineRefs$ = <Subject<Array<Object>>>new Subject();
     }
 
+    /*
+        To prevent the data from being altered we expose the subject through a
+        getter and cast it to an Observable. This allows components to receive
+        updates but not push new values. Because subject can act as both observer
+        and an observable
+     */
     get lineRefs$() {
         return this._lineRefs$.asObservable();
     }
