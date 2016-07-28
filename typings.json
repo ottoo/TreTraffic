@@ -4,13 +4,13 @@
   "globalDependencies": {
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
     "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
-    "jquery": "registry:dt/jquery#1.10.0+20160620094458",
-    "lodash": "registry:dt/lodash#3.10.0+20160619033623",
-    "materialize-css": "registry:dt/materialize-css#0.97.5+20160317120654",
-    "node": "registry:dt/node#6.0.0+20160621231320",
+    "jquery": "registry:dt/jquery#1.10.0+20160704162008",
+    "lodash": "registry:dt/lodash#3.10.0+20160720001309",
+    "materialize-css": "registry:dt/materialize-css#0.97.5+20160628040906",
+    "node": "registry:dt/node#6.0.0+20160728152422",
     "shortid": "registry:dt/shortid#0.0.0+20160316155526",
     "source-map": "registry:dt/source-map#0.0.0+20160317120654",
     "uglify-js": "registry:dt/uglify-js#2.6.1+20160316155526",
-    "webpack": "registry:dt/webpack#1.12.9+20160523035535"
+    "webpack": "registry:dt/webpack#1.12.9+20160724112410"
   }
 }
