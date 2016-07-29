@@ -138,7 +138,7 @@ export class GMapsProvider {
    * @param {number} lineRef
    */
   getIconPath(lineRef: number) {
-    return lineRef ? '/res/number_' + lineRef + '.png' : '';
+    return lineRef ? 'res/number_' + lineRef + '.png' : '';
   }
 
   /**
